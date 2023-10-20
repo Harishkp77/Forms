@@ -3,22 +3,22 @@
     <div class="row">
       <div class="col-md-6">
             <h2 class="text-center">Student Registration</h2>
-            <form (submit)="onSubmit()">
+            <form (ngSubmit)="onSubmit()" #myform="ngForm">
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" name="firstName" placeholder="Enter your first name" required [(ngModel)]="newStudent.firstName">
+                    <input type="text" class="form-control" name="firstName" placeholder="Enter your first name" ngModel >
                 </div>
                 <div class="mb-3">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" name="lastName" placeholder="Enter your last name" required [(ngModel)]="newStudent.lastName">
+                    <input type="text" class="form-control" name="lastName" placeholder="Enter your last name" ngModel>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="emailId" placeholder="Enter your email address" required [(ngModel)]="newStudent.emailId">
+                    <input type="email" class="form-control" name="emailId" placeholder="Enter your email address" ngModel>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Enter your password" required [(ngModel)]="newStudent.password">
+                    <input type="password" class="form-control" name="password" placeholder="Enter your password" ngModel>
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
@@ -30,6 +30,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th>S.No</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email ID</th>
@@ -38,7 +39,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let s of student; let i = index">
-            <td>{{i+1}}</td>
+          <td>{{i+1}}</td>
           <td>{{ s.firstName }}</td>
           <td>{{ s.lastName }}</td>
           <td>{{ s.emailId}}</td>

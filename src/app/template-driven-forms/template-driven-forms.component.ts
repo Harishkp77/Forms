@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-template-driven-forms',
@@ -6,13 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./template-driven-forms.component.css']
 })
 export class TemplateDrivenFormsComponent {
-  newStudent:any = {};
-  student:any=[];
+  student: any = [];
+  newStudent:any={};
+  @ViewChild('myform') form!:NgForm;
 
-  onSubmit(){
+  onSubmit() {
+    this.newStudent = this.form.value;
     this.student.push(this.newStudent);
-    this.newStudent={};
-    console.log(this.student);
+    console.log(this.student)
+    this.form.resetForm();
+    
   }
-
 }
